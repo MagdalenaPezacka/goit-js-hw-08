@@ -16,5 +16,12 @@ const getFotoGallery = galleryItems
 
 fotoGallery.insertAdjacentHTML('beforeend', getFotoGallery)
 
-const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionPosition: 'outside', captionDelay: 250, nav: false, close: false, showCounter: false });
+const lightbox = new SimpleLightbox('.gallery a', {
+	captionsData: 'alt',
+	captionPosition: 'outside',
+	captionDelay: 250,
+	nav: false,
+	close: false,
+	showCounter: false
+});
 console.log(galleryItems);
