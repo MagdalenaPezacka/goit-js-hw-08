@@ -8,7 +8,7 @@ const player = new Player(iframe);
 const onPlay = function (data) {
     localStorage.setItem('videoplayer-current-time', JSON.stringify(data.seconds))
 };
-player.on('timeupdate', onPlay);
+// player.on('timeupdate', onPlay);
 
 //wznawianie odtwarzania od zapisango momentu//
 const currentTime = localStorage.getItem('videoplayer-current-time');
