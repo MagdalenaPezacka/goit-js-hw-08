@@ -4,7 +4,6 @@ const form = document.querySelector('.feedback-form');
 const email = document.querySelector('input[name="email"]');
 const message = document.querySelector('textarea[name="message"]');
 const LOCALSTORAGE_KEY = 'feedback-form-state';
-let data = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
 
 onReload();
 //zapisuje w localStorage obiekt z wartościami pól email i message//
@@ -22,7 +21,7 @@ form.addEventListener('input', throttle(formRefill, 500));
 //po przeładowywaniu strony, jeśli w localStorage są dane - wypełnia nimi pola
 //formularza, jeśli nie - pola puste//
 function onReload() {
-  
+  const data = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
   if (data) {
     email.value = data.email;
     message.value = data.message;
@@ -37,7 +36,7 @@ function onSubmit(event) {
   if (email.value === '' || message.value === '') {
     return alert("Please fill in all the fields!");
   }
-  localStorage.setItem(LOCALSTORAGE_KEY, email.value && message.value);
+  // localStorage.setItem(LOCALSTORAGE_KEY, form.elements.message.value);
   updateInput();
   form.reset();
 }
