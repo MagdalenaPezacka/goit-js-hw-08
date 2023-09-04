@@ -32,18 +32,13 @@ function onReload() {
 
 function onSubmit(event) {
   event.preventDefault();
-  
+  console.log({ email: email.value, message: message.value });
   if (email.value === '' || message.value === '') {
     return alert("Please fill in all the fields!");
   }
-  // localStorage.setItem(LOCALSTORAGE_KEY, form.elements.message.value);
-  updateInput();
+  localStorage.removeItem(LOCALSTORAGE_KEY);
   form.reset();
 }
-function updateInput() {
-  email.textContent = "";
-  message.textContent = "";
-}
+
 
 form.addEventListener('submit', onSubmit);
-console.log({ email: email.value, message: message.value });
